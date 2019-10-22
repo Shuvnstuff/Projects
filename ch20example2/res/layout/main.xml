@@ -1,0 +1,43 @@
+
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/TableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TableRow ...>  <!-- first row of controls (see below) -->
+    <TableRow ...>  <!-- second row of controls (see below) -->
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+</TableRow>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+</TableRow>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text Control" 
+        android:layout_span="2"
+        
+        />
+    	
+
+</TableLayout>
