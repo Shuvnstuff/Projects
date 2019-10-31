@@ -8,11 +8,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class sizelist extends ListActivity {
-	String sizelist[];
+	String[] sizelist = {"small","medium","large","party"};
 	
 	
 	public void onCreate(Bundle savedInstanceState) {
-		String sizelist[] = {"small","medium","large","party"};
+
 		super.onCreate(savedInstanceState);
 		ArrayAdapter<String> myAdapter = new ArrayAdapter<String> (this,android.R.layout.simple_list_item_1, sizelist);
 	      setListAdapter(myAdapter);

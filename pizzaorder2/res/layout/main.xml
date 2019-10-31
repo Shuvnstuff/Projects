@@ -8,17 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".Main" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="17dp"
-        android:layout_marginTop="16dp"
-        android:text="Name:"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -39,17 +28,17 @@
         android:layout_below="@+id/textView2" >
 
         <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pan" />
+
+        <RadioButton
             android:id="@+id/radio0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Stuffed" />
-
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pan" />
 
         <RadioButton
             android:id="@+id/radio2"
@@ -140,14 +129,6 @@
         android:layout_alignParentRight="true"
         android:text="Onion" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView3"
-        android:layout_alignParentBottom="true"
-        android:text="Place Order" />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -166,12 +147,49 @@
         android:text="Toppings"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Name:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/checkBox8"
+        android:text="Place Order" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/checkBox4"
+        android:layout_alignRight="@+id/checkBox7"
+        android:layout_alignTop="@+id/radioGroup1"
+        android:layout_marginTop="17dp"
         android:text="Size" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+		android:prompt="@string/spinner_prompt" />
+
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/radioGroup1"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignRight="@+id/checkBox9"
+        android:layout_marginBottom="14dp" 
+        android:progress="16"
+        android:max="64"/>
 
 </RelativeLayout>
