@@ -8,8 +8,16 @@
     android:paddingRight="15dp"
     android:paddingTop="15dp" >
 
+    <TextView
+        android:id="@+id/NameSpace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Player Name: "
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/PlayButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="☺" />
@@ -61,7 +69,7 @@
         android:text="☺" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/Nonedit2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

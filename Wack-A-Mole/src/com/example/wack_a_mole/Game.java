@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.*;
-import java.util.Random;
+
 
 public class Game extends Activity implements OnClickListener{
 	
@@ -53,6 +53,15 @@ public class Game extends Activity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
 		
+		Bundle bun = getIntent().getExtras();
+		playerName = bun.getString("Name");
+		difficultylevel = bun.getInt("Dif");
+		numMoles = bun.getInt("Moles");
+		duration = bun.getInt("Duration");
+		
+		TextView tvName = (TextView)findViewById(R.id.NameSpace);
+		tvName.setText("Player Name: " + playerName);
+		
 		initButtons();
 		setNewMole();
 		setTimer(difficultylevel * 1000);
@@ -73,7 +82,7 @@ public class Game extends Activity implements OnClickListener{
 		
 		if(a == currentMole) {
 			numWhacks ++;
-			TextView tvWhack = (TextView)findViewById(R.id.textView1);
+			TextView tvWhack = (TextView)findViewById(R.id.Nonedit2);
 			tvWhack.setText("Number of Whacks: " + numWhacks);
 			setNewMole();
 		}
@@ -90,7 +99,7 @@ public class Game extends Activity implements OnClickListener{
 			
 		isComplete = true;
 			//Finds the textView1 element in the XML
-		TextView tvScore = (TextView)findViewById(R.id.textView1);
+		TextView tvScore = (TextView)findViewById(R.id.Nonedit2);
 			//Sets the now found textView1 to Game Over! Score: + the Number of whacks
 		tvScore.setText("Game Over! Score: " + numWhacks);
 		

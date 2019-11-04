@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/NameText"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/Nonedit1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginLeft="14dp"
+        android:layout_marginTop="14dp"
+        android:text="Enter Your name:" />
+
+    <EditText
+        android:id="@+id/NameBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/Nonedit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Number of Moles:" />
+
+    <Spinner
+        android:id="@+id/MoleSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/Nonedit3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Game Difficulty:" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/EasyDif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Easy" />
+
+        <RadioButton
+            android:id="@+id/MediumDif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium" />
+
+        <RadioButton
+            android:id="@+id/HardDif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hard" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/Nonedit4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Duration of Game" />
+
+    <SeekBar
+        android:id="@+id/Duration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+    	android:progress = "10"
+    	android:max = "30"/>
+
+    <Button
+        android:id="@+id/PlayButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Play Game" />
+
+</LinearLayout>
