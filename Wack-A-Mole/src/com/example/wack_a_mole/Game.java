@@ -27,11 +27,6 @@ public class Game extends Activity implements OnClickListener{
 	protected Boolean isComplete = false;
 		// We need to know which mole is the currently visible mole
 	Button currentMole;
-	
-	
-	
-	
-	
 		// Use the current time as the start time for the game
 	long startTime = System.currentTimeMillis();
 		// Keep track of how many times the user has hit the mole
@@ -52,12 +47,19 @@ public class Game extends Activity implements OnClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.game);
-		
+		//not needed data coming from prefs not intent
+		/*
 		Bundle bun = getIntent().getExtras();
 		playerName = bun.getString("Name");
 		difficultylevel = bun.getInt("Dif");
 		numMoles = bun.getInt("Moles");
 		duration = bun.getInt("Duration");
+		*/
+		SharedPreferences  prefs = getSharedPreferences("WhackSettings",MODE_PRIVATE);
+		playerName = prefs.getString("Name", playerName);
+		difficultylevel = prefs.getInt("Dif", difficultylevel);
+		numMoles = prefs.getInt("Moles", numMoles);
+		duration = prefs.getInt("Duration", duration);
 		
 		TextView tvName = (TextView)findViewById(R.id.NameSpace);
 		tvName.setText("Player Name: " + playerName);
@@ -102,6 +104,11 @@ public class Game extends Activity implements OnClickListener{
 		TextView tvScore = (TextView)findViewById(R.id.Nonedit2);
 			//Sets the now found textView1 to Game Over! Score: + the Number of whacks
 		tvScore.setText("Game Over! Score: " + numWhacks);
+		Intent gameOverint = new Intent(this, GameOver.class);
+		gameOverint.putExtra("Name",playerName);
+		gameOverint.putExtra("Score", numWhacks);
+		startActivity(gameOverint);
+		finish();
 		
 	}
 	

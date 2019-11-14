@@ -2,6 +2,7 @@ package com.example.wack_a_mole;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.*;
@@ -15,6 +16,7 @@ public class Options extends Activity implements OnClickListener {
 		setUpSpinner();
 		Button playButton = (Button)findViewById(R.id.PlayButton);
 		playButton.setOnClickListener(this);
+		loadSettings();
 	}
 	private void setUpSpinner() {
 		
@@ -32,6 +34,48 @@ public class Options extends Activity implements OnClickListener {
 		myIntent.putExtra("Dif", difficulty);
 		myIntent.putExtra("Moles", numMoles);
 		myIntent.putExtra("Duration", duration);
+	}
+	private void saveSettingsInPrefs(int difficulty, String name,int numMoles, int duration) {
+		SharedPreferences  prefs = getSharedPreferences("WhackSettings",MODE_PRIVATE);
+		SharedPreferences.Editor edit = prefs.edit();
+		
+		edit.putString("Name", name);
+		edit.putInt("Dif", difficulty);
+		edit.putInt("Moles", numMoles);
+		edit.putInt("Duration", duration);
+		
+		edit.commit();
+		
+	}
+	private void loadSettings() {
+		SharedPreferences  prefs = getSharedPreferences("WhackSettings",MODE_PRIVATE);
+		String name = prefs.getString("Name", "");
+		int duration = prefs.getInt("Duration", 20);
+		int dif = prefs.getInt("Dif", 2);
+		int numMoles = prefs.getInt("Moles", 8);
+		// Setting Name
+		EditText nameText = (EditText)findViewById(R.id.NameBox);
+		nameText.setText(name);
+		// Setting Difficulty
+		RadioButton easy = (RadioButton)findViewById(R.id.EasyDif);
+		RadioButton medium = (RadioButton)findViewById(R.id.MediumDif);
+		RadioButton hard = (RadioButton)findViewById(R.id.HardDif);
+		if (dif == 3) {
+			easy.setChecked(true);
+		}
+		else if (dif == 2) {
+			medium.setChecked(true);
+		}
+		else {
+			hard.setChecked(true);
+		}
+		// Set duration
+		SeekBar dursb = (SeekBar)findViewById(R.id.Duration);
+		dursb.setProgress(duration);
+		// Set Number of Moles
+		Spinner molesp = (Spinner)findViewById(R.id.MoleSpin);
+		molesp.setSelection(numMoles - 3);
+		
 	}
 	@Override
 	public void onClick(View v) {
@@ -63,7 +107,8 @@ public class Options extends Activity implements OnClickListener {
 			String name = nameText.getText().toString();
 			int duration = dursb.getProgress();
 			int numMoles = molesp.getSelectedItemPosition()+3;
-			saveSettingsInIntent(dif, name, numMoles, duration, gameIntent);
+			//saveSettingsInIntent(dif, name, numMoles, duration, gameIntent);
+			saveSettingsInPrefs(dif, name, numMoles, duration);
 			startActivity(gameIntent);
 		}
 	}
