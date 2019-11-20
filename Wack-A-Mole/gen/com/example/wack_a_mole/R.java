@@ -21,7 +21,10 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int backgroun=0x7f020000;
+        public static final int download=0x7f020001;
+        public static final int hole=0x7f020002;
+        public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
         public static final int Duration=0x7f08001e;
@@ -30,6 +33,15 @@ public final class R {
         public static final int GameOvr=0x7f08000f;
         public static final int HardDif=0x7f08001c;
         public static final int HitNum=0x7f08000e;
+        public static final int ImageButton1=0x7f080002;
+        public static final int ImageButton2=0x7f080003;
+        public static final int ImageButton3=0x7f080004;
+        public static final int ImageButton4=0x7f080005;
+        public static final int ImageButton5=0x7f080006;
+        public static final int ImageButton6=0x7f080007;
+        public static final int ImageButton7=0x7f080008;
+        public static final int ImageButton8=0x7f080009;
+        public static final int ImageView1=0x7f080020;
         public static final int MediumDif=0x7f08001b;
         public static final int MoleSpin=0x7f080017;
         public static final int NameBox=0x7f080016;
@@ -40,19 +52,14 @@ public final class R {
         public static final int Nonedit3=0x7f080018;
         public static final int Nonedit4=0x7f08001d;
         public static final int PlayBttn=0x7f08000d;
-        public static final int PlayButton=0x7f080002;
+        public static final int PlayButton=0x7f08001f;
         public static final int RelativeLayout1=0x7f08000b;
         public static final int ScoreBttn=0x7f08000c;
-        public static final int action_settings=0x7f08001f;
-        public static final int button2=0x7f080003;
-        public static final int button3=0x7f080004;
-        public static final int button4=0x7f080005;
-        public static final int button5=0x7f080006;
-        public static final int button6=0x7f080007;
-        public static final int button7=0x7f080008;
-        public static final int button8=0x7f080009;
+        public static final int action_settings=0x7f080023;
+        public static final int option=0x7f080021;
         public static final int radioGroup1=0x7f080019;
         public static final int relativeLayout1=0x7f080011;
+        public static final int start=0x7f080022;
         public static final int textView1=0x7f080010;
         public static final int tvPlayerName=0x7f080012;
         public static final int tvScore=0x7f080013;
@@ -62,6 +69,7 @@ public final class R {
         public static final int gameover=0x7f030001;
         public static final int highscores=0x7f030002;
         public static final int options=0x7f030003;
+        public static final int start=0x7f030004;
     }
     public static final class menu {
         public static final int game=0x7f070000;

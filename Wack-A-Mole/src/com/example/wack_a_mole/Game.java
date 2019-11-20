@@ -26,7 +26,7 @@ public class Game extends Activity implements OnClickListener{
 		// The isComplete variable will tell us when time is up!
 	protected Boolean isComplete = false;
 		// We need to know which mole is the currently visible mole
-	Button currentMole;
+	ImageButton currentMole;
 		// Use the current time as the start time for the game
 	long startTime = System.currentTimeMillis();
 		// Keep track of how many times the user has hit the mole
@@ -136,7 +136,7 @@ public class Game extends Activity implements OnClickListener{
 		}
 		
 			// Get the new mole button using the new Button ID value
-		Button newMole = (Button)findViewById(newButtonId);
+		ImageButton newMole = (ImageButton)findViewById(newButtonId);
 			// Set our new mole to visible on the screen
 		newMole.setVisibility(View.VISIBLE);
 			// Return the new mole Button object
@@ -160,7 +160,7 @@ public class Game extends Activity implements OnClickListener{
 			v = group.getChildAt(i);
 			
 			// if the current control is button
-			if (v instanceof Button) {
+			if (v instanceof ImageButton) {
 				v.setOnClickListener(this);
 				
 				if(!isComplete) {
