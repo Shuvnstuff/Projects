@@ -60,6 +60,7 @@ public class AlarmList extends ListActivity
 
     // Re-populate the display list of alarms
     buildAlarmDisplayStrings();
+    registerForContextMenu(getListView());
 
   }
   
@@ -162,6 +163,8 @@ public class AlarmList extends ListActivity
   // This method is called when the program needs to create an ActionBar menu
   public boolean onCreateOptionsMenu(Menu menu) 
   {
+	  MenuInflater mi = getMenuInflater();
+	  mi.inflate(R.menu.actionbar, menu);
          
     return true;   // all done!
   }
@@ -174,6 +177,13 @@ public class AlarmList extends ListActivity
   // This method is called when a user clicks on a menu item
   public boolean onOptionsItemSelected(MenuItem item) 
   {
+	  if (item.getItemId() == R.id.actionAdd) {
+		  Intent addIntent = new Intent(this, AddAlarm.class);
+		  addIntent.putExtra("alarm", "");
+		  addIntent.putExtra("index", -1);
+		  
+		  startActivityForResult(addIntent, 0);
+	  }
 
      return super.onOptionsItemSelected(item);
   }
@@ -188,7 +198,8 @@ public class AlarmList extends ListActivity
                                   ContextMenuInfo menuInfo) 
   {
     super.onCreateContextMenu(menu, v, menuInfo);
-    
+    MenuInflater mi = getMenuInflater();
+    mi.inflate(R.menu.contextdelete, menu);
   }
   //**************************************************************
   
@@ -199,6 +210,18 @@ public class AlarmList extends ListActivity
   // This method is called when a user clicks on a context menu item
   public boolean onContextItemSelected(MenuItem item) 
   {
+	  if(item.getItemId() == R.id.menuDelete) {
+		  AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+		  int index = info.position;
+		 if((index >= 0) && (index < myAlarmKeepers.size())) {
+			 AlarmKeeper alarm = myAlarmKeepers.get(index);
+			 alarm.cancelAlarm(this);
+			 myAlarmKeepers.remove(index);
+			 
+			 saveAlarms();
+			 buildAlarmDisplayStrings();
+		 }
+	  }
 
     return super.onOptionsItemSelected(item);
   }

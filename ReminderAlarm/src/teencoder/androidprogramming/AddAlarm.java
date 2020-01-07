@@ -257,12 +257,12 @@ public class AddAlarm extends Activity implements OnClickListener
            {
               AddAlarm activity = (AddAlarm)getActivity();
               // verify a valid alarm was configured
-              if ((activity.thisAlarm.alarmName == null) ||
-                  (activity.thisAlarm.alarmName.length() == 0))
+              if ((activity.thisAlarm.alarmName == null) || (activity.thisAlarm.alarmName.length() == 0))
+                  
                  return;
 
-              if ((activity.thisAlarm.alarmDesc == null) ||
-                  (activity.thisAlarm.alarmDesc.length() == 0))
+              if ((activity.thisAlarm.alarmDesc == null) || (activity.thisAlarm.alarmDesc.length() == 0))
+                  
                  return;
 
               if (activity.thisAlarm.alarmYear == 0)
@@ -275,7 +275,7 @@ public class AddAlarm extends Activity implements OnClickListener
               // This line is used for Chapter 10 Activity
               // and Chapter 11 Activity #1
               // The line is commented out in Chapter 11 Activity #2
-              //activity.clearAlarmScreen();
+              activity.closeAlarmScreen();
            }
         });
 

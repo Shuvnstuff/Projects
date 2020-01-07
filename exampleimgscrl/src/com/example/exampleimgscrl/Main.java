@@ -2,12 +2,17 @@ package com.example.exampleimgscrl;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class Main extends Activity implements OnClickListener{
 
@@ -19,6 +24,30 @@ public class Main extends Activity implements OnClickListener{
 		myPhotos.addView(createImageView(R.drawable.banan6));
 		myPhotos.addView(createImageView(R.drawable.banan7));
 		myPhotos.addView(createImageView(R.drawable.banan8));
+		
+		ImageView iv = (ImageView)findViewById(R.id.myImageView);
+		registerForContextMenu(iv);
+	}
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+	    MenuInflater inflater = getMenuInflater();
+	    inflater.inflate(R.menu.my_image_context, menu);
+	}
+	public boolean onContextItemSelected(MenuItem item)
+	{
+	   if (item.getItemId() == R.id.menuShare)
+	   {
+	      Toast myToast
+	          = Toast.makeText(this,"Share Clicked",Toast.LENGTH_SHORT);
+	      myToast.show();
+	   }
+	   else if (item.getItemId() == R.id.menuDelete)
+	   {
+	      Toast myToast
+	         = Toast.makeText(this,"Delete Clicked",Toast.LENGTH_SHORT);
+	      myToast.show();
+	   }
+	   return true;
 	}
 	
 	@Override

@@ -49,13 +49,30 @@ public class AlarmReceiver extends BroadcastReceiver
        // The following code is used for Chapter 10 and then commented out in Chapter 11 Activity #1
        
        // Send a message to the user about the alarm
-       Toast t = Toast.makeText(context, name + "\n\n" + desc, Toast.LENGTH_LONG);
-       t.show();
+       //Toast t = Toast.makeText(context, name + "\n\n" + desc, Toast.LENGTH_LONG);
+       //t.show();
        //***********************************************************************************************
          
        //***********************************************************************************************
        // The following code is added for Chapter 11 Activity #1
+       Intent explicitIntent = new Intent(context, Snooze.class);
+       explicitIntent.putExtra("desc", desc);
+       explicitIntent.putExtra("name", name);
        
+       PendingIntent pendingintent = PendingIntent.getActivity(context, 0, explicitIntent, 0);
+       
+       Notification.Builder builder = new Notification.Builder(context);
+       builder.setSmallIcon(R.drawable.ic_launcher);
+       builder.setTicker("Reminder!");
+       builder.setContentIntent(pendingintent);
+       builder.setContentTitle(name);
+       builder.setContentText(desc);
+       builder.setAutoCancel(true);
+       
+       Notification notify = builder.build();
+       
+       NotificationManager nm =(NotificationManager)context.getSystemService(Context.NOTIFICATION_SERVICE);
+       nm.notify(0, notify);
        //***********************************************************************************************
     }
     catch (Exception e) 
